@@ -144,6 +144,11 @@ The host's `Info.plist` must declare:
 - `FirebaseAppDelegateProxyEnabled = false` if the app uses Firebase,
   so its swizzling doesn't interfere with MotionTag's background URLSession.
 
+Tested with both CocoaPods' default static-library linkage and
+`use_frameworks! :linkage => :static` (commonly enabled by Firebase,
+MapBox, and other Swift-only iOS SDKs) — no host-side workaround needed
+in either mode.
+
 ### Android — `Application.onCreate`
 
 ```kotlin

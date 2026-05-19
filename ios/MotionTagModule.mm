@@ -5,7 +5,15 @@
 // MotionTagDelegate (used as a protocol conformance on
 // MotionTagDelegateImpl) is satisfied.
 #import <MotionTagSDK/MotionTagSDK.h>
+// Swift generated header: CocoaPods only exposes it via the framework-style
+// include when the pod is built as a framework (use_frameworks!). In the
+// default static-library mode it stays in DerivedSources and is only
+// reachable via the quoted form.
+#if __has_include(<RNMotionTag/RNMotionTag-Swift.h>)
+#import <RNMotionTag/RNMotionTag-Swift.h>
+#else
 #import "RNMotionTag-Swift.h"
+#endif
 #import <RNMotionTagSpec/RNMotionTagSpec.h>
 
 // Codegen protocol conformance lives here, not on the public @interface,
