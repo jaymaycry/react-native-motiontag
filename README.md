@@ -191,7 +191,7 @@ Go won't work — the package has native code, so you need a development
 client build.
 
 ```sh
-git clone https://github.com/jaymaycry/react-native-motiontag
+git clone https://github.com/panter/react-native-motiontag
 cd react-native-motiontag
 yarn install                       # installs root devDeps + runs `bob build`
 cd example

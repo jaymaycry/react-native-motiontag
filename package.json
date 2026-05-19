@@ -2,7 +2,28 @@
   "name": "react-native-motiontag",
   "version": "0.1.0",
   "description": "React Native Turbo Module for the MotionTag tracking SDK",
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "expo",
+    "turbo-module",
+    "new-architecture",
+    "motiontag",
+    "tracking",
+    "location",
+    "mobility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panter/react-native-motiontag.git"
+  },
+  "homepage": "https://github.com/panter/react-native-motiontag#readme",
+  "bugs": {
+    "url": "https://github.com/panter/react-native-motiontag/issues"
+  },
   "license": "MIT",
+  "author": "Jay Péclard <jay.peclard@gmail.com>",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
