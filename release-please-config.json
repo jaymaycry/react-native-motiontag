@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "@panter/react-native-motiontag",
+      "changelog-path": "CHANGELOG.md",
+      "include-component-in-tag": false,
+      "bootstrap-sha": "2f359f499f13bf49c42c7ab2c648c96fe94420c0"
+    }
+  }
+}

@@ -18,6 +18,7 @@ SDK v7.2.x — the platform asymmetry is hidden behind a shared TS contract.
 - [Running the example app](#running-the-example-app)
 - [Repo layout](#repo-layout)
 - [Developing the package](#developing-the-package)
+- [Releasing](#releasing)
 
 ## Install in your app
 
@@ -266,3 +267,54 @@ re-install.
 - **Iterate on the Expo config plugin** by editing files in `plugin/` and
   re-running `npx expo prebuild --clean` in `example/`. The injected blocks
   are wrapped in `@generated` markers and de-duplicated on re-run.
+
+## Releasing
+
+Releases are fully automated via [release-please](https://github.com/googleapis/release-please)
+and npm Trusted Publishing — no manual `npm publish`, no tokens, no
+hand-edited changelog.
+
+### The flow
+
+1. Land commits on `main` using [Conventional Commits](https://www.conventionalcommits.org/):
+   - `feat: …` — minor bump (`0.1.0` → `0.2.0`)
+   - `fix: …` — patch bump (`0.1.0` → `0.1.1`)
+   - `feat!: …` or `BREAKING CHANGE:` in body — major bump
+   - `chore:`, `docs:`, `refactor:`, `test:`, `ci:` — no bump, but appear
+     in the changelog under their respective sections
+2. The **Release Please** workflow opens (or updates) a PR titled
+   `chore(main): release X.Y.Z`. The PR contains the version bump in
+   `package.json`, an updated `CHANGELOG.md` assembled from the commit
+   subjects since the last release, and an updated
+   `.release-please-manifest.json`.
+3. Merge that PR when you're ready to release. Release-please then creates
+   the git tag (`vX.Y.Z`) and a matching GitHub Release with the changelog
+   body.
+4. The `publish` job in the same workflow runs `yarn prepare` (bob build)
+   and `npm publish` with npm provenance attached via OIDC.
+
+### One-time npm setup
+
+On npmjs.com → `@panter/react-native-motiontag` → *Settings* →
+*Trusted Publisher* → *Add*:
+
+- Publisher: GitHub Actions
+- Organization: `panter`
+- Repository: `react-native-motiontag`
+- Workflow filename: `release-please.yml`
+- Environment: *(leave blank)*
+
+No `NPM_TOKEN` secret is required.
+
+### Hotfix / manual override
+
+If you need to publish a version that release-please can't produce (e.g. a
+hotfix from a non-`main` branch), bump `package.json` + push manually:
+
+```sh
+yarn prepare
+npm publish --access public
+```
+
+You'll need a local npm auth token for the manual path — Trusted
+Publishing only covers the GitHub Actions workflow.
