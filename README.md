@@ -169,8 +169,10 @@ import de.motiontag.reactnative.MotionTagBootstrap
 
 override fun onCreate() {
     super.onCreate()
-    loadReactNative(this)
+    // Init the SDK before React Native loads — the MotionTag SDK requires
+    // initialisation as early as possible in onCreate.
     MotionTagBootstrap.init(this, createNotification())
+    loadReactNative(this)
 }
 ```
 
