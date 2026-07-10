@@ -4,7 +4,7 @@ Turbo Module wrapping the [MotionTag tracking SDK](https://motion-tag.com/) for
 React Native (new architecture only).
 
 The JS surface mirrors the [official Flutter SDK](https://github.com/MOTIONTAG/motiontag-sdk-flutter)
-so payloads are interchangeable. Bridges the iOS SDK v6.5.x and the Android
+so payloads are interchangeable. Bridges the iOS SDK v7.0.x and the Android
 SDK v7.2.x — the platform asymmetry is hidden behind a shared TS contract.
 
 ## Contents
@@ -214,7 +214,7 @@ practice this is rare and only affects authorization-status changes; the
 
 | Platform | Version | Source |
 | --- | --- | --- |
-| iOS | `MotionTagSDK ~> 6.5.0` | CocoaPods trunk (transitive from this pod) |
+| iOS | `MotionTagSDK ~> 7.0.0` | CocoaPods trunk (transitive from this pod) |
 | Android | `de.motiontag:tracker:7.2.5` | `pkgs.dev.azure.com/motiontag/releases` (Maven repo declared in this package) |
 
 The two SDKs are intentionally out of sync — aligning them is tracked as
@@ -329,7 +329,7 @@ doesn't publish a GitHub release feed. Both `locale=en` and `locale=de` work.
 
 | Axis | Pinned in | Currently |
 | --- | --- | --- |
-| iOS SDK | [`react-native-motiontag.podspec`](react-native-motiontag.podspec) | `MotionTagSDK ~> 6.5.0` |
+| iOS SDK | [`react-native-motiontag.podspec`](react-native-motiontag.podspec) | `MotionTagSDK ~> 7.0.0` |
 | Android SDK | [`android/build.gradle`](android/build.gradle) | `de.motiontag:tracker:7.2.5` |
 | Example Expo SDK | [`example/package.json`](example/package.json) | `expo ~55` |
 | Library build tooling | [`package.json`](package.json) | `react-native-builder-bob`, `@expo/config-plugins`, `typescript` |
